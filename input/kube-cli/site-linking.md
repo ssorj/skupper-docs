@@ -1,4 +1,3 @@
-<a id="kube-linking-cli"></a>
 # Linking sites on Kubernetes using the Skupper CLI
 
 Using the Skupper command-line interface (CLI) allows you to create links between sites.
@@ -6,7 +5,6 @@ The link direction is not significant, and is typically determined by ease of co
 
 Once sites are linked, services can be exposed and consumed across the application network without the need to open ports or manage inter-site connectivity.
 
-<a id="kube-token-cli"></a>
 ## Linking sites using a token
 
 A token provides a secure method to link sites.
@@ -33,25 +31,25 @@ To link sites, you create a token on one site and redeem that token on the other
    where `<filename>` is the name of a YAML file that is saved on your local filesystem.
 
    This file contains a key and the location of the site that created it.
-   
+
    **📌 NOTE**
-   Access to this file provides access to the application network. 
+   Access to this file provides access to the application network.
    Protect it appropriately.
    A token can be restricted by any combination of:
 
    * Time - prevents token reuse after a specified period.
-     
+
      For example, to allow a token to be used for 1 hour after it is issued:
      ```
      skupper token issue build/west.yaml --expiration-window 60m
      ```
    * Usage - prevents creating multiple links from a single token.
-     
+
      For example, to allow a token to be used 3 times:
      ```
      skupper token issue output/west.yaml --redemptions-allowed 3
      ```
-   
+
    All inter-site traffic is protected by mutual TLS using a private, dedicated certificate authority (CA).
    A token is not a certificate, but is securely exchanged for a certificate during the linking process.
 
@@ -78,7 +76,6 @@ To link sites, you create a token on one site and redeem that token on the other
 
 There are many options to consider when linking sites using the CLI, see [CLI Reference][cli-ref], including *frequently used* options.
 
-<a id="kube-link-cli"></a>
 ## Linking sites using a `link` resource
 
 An alternative approach to linking sites using tokens is to create a `link` resource YAML file using the CLI, and to apply that resource to another site.
@@ -124,4 +121,3 @@ To link sites, you create a `link` resource YAML file on one site and apply that
    You can now expose services on the application network.
 
 There are many options to consider when linking sites using the CLI, see [CLI Reference][cli-ref], including *frequently used* options.
-

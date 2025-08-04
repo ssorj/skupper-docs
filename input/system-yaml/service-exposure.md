@@ -1,4 +1,3 @@
-<a id="system-yaml-service-exposure"></a>
 # Exposing services on the application network using YAML
 
 After creating an application network by linking sites, you can expose services from one site using connectors and consume those services on other sites using listeners.
@@ -48,9 +47,9 @@ For more information about connectors see [Connector concept][connector]
    ```bash
    kubectl get connector
    ```
-   
+
    For example:
-   
+
    ```
    NAME    STATUS  ROUTING-KEY     SELECTOR        HOST    PORT    HAS MATCHING LISTENER    MESSAGE
    backend Pending backend         app=backend             8080    false   No matching listeners
@@ -61,10 +60,9 @@ For more information about connectors see [Connector concept][connector]
 
 There are many options to consider when creating connectors using YAML, see [CLI Reference][cli-ref], including *frequently used* options.
 
-
 ## Creating a listener using YAML
 
-A listener binds a local connection endpoint to connectors in remote sites. 
+A listener binds a local connection endpoint to connectors in remote sites.
 Listeners and connectors are matched using routing keys.
 
 **Procedure**
@@ -84,7 +82,7 @@ Listeners and connectors are matched using routing keys.
      host: east-backend
      port: 8080
    ```
-   This creates a listener in the `west` site and matches with the connector that uses the routing key `backend`. 
+   This creates a listener in the `west` site and matches with the connector that uses the routing key `backend`.
    It also creates a service named  `east-backend` exposed on port 8080 in the current namespace.
 
    To create the connector resource:
@@ -99,14 +97,14 @@ Listeners and connectors are matched using routing keys.
    ```bash
    kubectl get listener
    ```
-   
+
    For example:
-   
+
    ```
    NAME      ROUTING KEY   PORT   HOST           STATUS   HAS MATCHING CONNECTOR   MESSAGE
-   backend   backend       8080   east-backend   Ready    true                     OK   
+   backend   backend       8080   east-backend   Ready    true                     OK
    ```
-   
+
    **📌 NOTE**
    There must be a `MATCHING-CONNECTOR` for the service to operate.
 

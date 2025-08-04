@@ -1,5 +1,4 @@
-<a id="kube-yaml"></a>
-# Overview of using YAML CLI on Kubernetes
+# Using Skupper YAML with Kubernetes
 
 You can use YAML on Kubernetes after installing the Skupper controller to
 

@@ -1,6 +1,4 @@
-<a id="system-yaml-site-linking"></a>
 # Linking sites on local systems using YAML
-
 
 Using a `link` resource YAML file allows you to create links between sites.
 The link direction is not significant, and is typically determined by ease of connectivity. For example, if east is behind a firewall, linking from east to west is the easiest option.
@@ -8,9 +6,8 @@ The link direction is not significant, and is typically determined by ease of co
 Once sites are linked, services can be exposed and consumed across the application network without the need to open ports or manage inter-site connectivity.
 
 The procedures below describe linking an existing site.
-Typically, it is easier to configure a site, links and services in a set of files and then create a configured site by placing all the YAML files in a directory, for example `local` and then using the following command to 
+Typically, it is easier to configure a site, links and services in a set of files and then create a configured site by placing all the YAML files in a directory, for example `local` and then using the following command to
 
-<a id="system-link-yaml"></a>
 ## Linking sites using a `link` resource
 
 An alternative approach to linking sites using tokens is to create a `link` resource YAML file using the CLI, and to apply that resource to another site.
@@ -56,7 +53,7 @@ To link sites, you create a `link` resource YAML file on one site and apply that
    2025/03/09 22:43:15 WARN certificate will not be overwritten path=~/.local/share/skupper/namespaces/default/runtime/issuers/skupper-service-ca/tls.crt
    2025/03/09 22:43:15 WARN certificate will not be overwritten path=~/.local/share/skupper/namespaces/default/runtime/issuers/skupper-service-ca/tls.key
    2025/03/09 22:43:15 WARN certificate will not be overwritten path=~/.local/share/skupper/namespaces/default/runtime/issuers/skupper-service-ca/ca.crt
-   
+
    ```
 
 4. Check the status of the link:

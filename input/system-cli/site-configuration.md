@@ -1,5 +1,4 @@
-<a id="system-creating-site-cli"></a>
-# Creating a site on a local system using the Skupper CLI
+# Creating a site on a local system using the CLI
 
 Using the skupper command-line interface (CLI) allows you to create and manage Skupper sites from the context of the current user.
 
@@ -36,7 +35,6 @@ Installing the skupper command-line interface (CLI) provides a simple method to 
    loginctl enable-linger <username>
    ```
 
-<a id="system-creating-simple-site-cli"></a>
 ## Creating a simple site using the CLI on local systems
 
 **Prerequisites**
@@ -71,7 +69,6 @@ Installing the skupper command-line interface (CLI) provides a simple method to 
 
   📌 NOTE: On non-Kubernetes sites, you can create multiple sites per-user by specifying a *namespace*.
 
-<a id="system-deleting-site-cli"></a>
 ## Deleting a site using the CLI on local systems
 
 **Prerequisites**

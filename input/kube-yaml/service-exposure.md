@@ -1,4 +1,3 @@
-<a id="kube-exposing-services-yaml"></a>
 # Exposing services on the application network using YAML
 
 After creating an application network by linking sites, you can expose services from one site using connectors and consume those services on other sites using listeners.
@@ -7,7 +6,6 @@ For example, if you create a connector with the routing key `backend`, you need 
 
 This section assumes you have created and linked at least two sites.
 
-<a id="kube-creating-connector-yaml"></a>
 <!-- Creating a connector on Kubernetes using YAML -->
 ## Creating a connector using YAML
 
@@ -50,9 +48,9 @@ There are many options to consider when creating connectors using YAML, see [Con
    ```bash
    kubectl get connector
    ```
-   
+
    For example:
-   
+
    ```
    NAME    STATUS  ROUTING-KEY     SELECTOR        HOST    PORT    HAS MATCHING LISTENER    MESSAGE
    backend Pending backend         app=backend             8080    false   No matching listeners
@@ -63,11 +61,10 @@ There are many options to consider when creating connectors using YAML, see [Con
 
 There are many options to consider when creating connectors using YAML, see [CLI Reference][cli-ref], including *frequently used* options.
 
-<a id="kube-creating-listener-yaml"></a>
 <!-- Creating a listener on Kubernetes using YAML -->
 ## Creating a listener using YAML
 
-A listener binds a local connection endpoint to connectors in remote sites. 
+A listener binds a local connection endpoint to connectors in remote sites.
 Listeners and connectors are matched using routing keys.
 
 For more information about listeners. see [Listener concept][listener].
@@ -89,7 +86,7 @@ For more information about listeners. see [Listener concept][listener].
      host: east-backend
      port: 8080
    ```
-   This creates a listener in the `west` site and matches with the connector that uses the routing key `backend`. 
+   This creates a listener in the `west` site and matches with the connector that uses the routing key `backend`.
    It also creates a service named  `east-backend` exposed on port 8080 in the current namespace.
 
    To create the connector resource:
@@ -104,21 +101,19 @@ For more information about listeners. see [Listener concept][listener].
    ```bash
    kubectl get listener
    ```
-   
+
    For example:
-   
+
    ```
    NAME      ROUTING KEY   PORT   HOST           STATUS   HAS MATCHING CONNECTOR   MESSAGE
-   backend   backend       8080   east-backend   Ready    true                     OK   
+   backend   backend       8080   east-backend   Ready    true                     OK
    ```
-   
+
    **📌 NOTE**
    There must be a `MATCHING-CONNECTOR` for the service to operate.
 
 There are many options to consider when creating listeners using YAML, see [Listener resource][listener-resource].
 
-
-<a id="kube-creating-attachedconnector-yaml"></a>
 ## Creating a connector for a different namespace using YAML
 
 A connector binds a local workload to listeners in remote sites.
@@ -183,9 +178,9 @@ If you create a site in one namespace and need to expose a service in a differen
    ```bash
    kubectl get AttachedConnectorBinding
    ```
-   
+
    For example:
-   
+
    ```
    NAME      ROUTING KEY   CONNECTOR NAMESPACE   STATUS   HAS MATCHING LISTENER
    backend   backend       attached              Ready    true

@@ -19,7 +19,6 @@
 
 from transom.planocommands import *
 
-
 @command
 def test():
     render()
@@ -34,7 +33,6 @@ def test():
         generate_examples(output_dir=temp)
         generate_releases(output_dir=temp)
         generate_scripts(output_dir=temp)
-
 
 @command
 def update_transom():

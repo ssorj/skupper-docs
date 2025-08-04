@@ -1,4 +1,3 @@
-<a id="system-exposing-services-cli"></a>
 # Exposing services on the application network using the CLI
 
 After creating an application network by linking sites, you can expose services from one site using connectors and consume those services on other sites using listeners.
@@ -38,9 +37,9 @@ For more information about connectors see [Connector concept][connector]
    ```bash
    skupper connector status
    ```
-   
+
    For example:
-   
+
    ```
    $ skupper connector status
    NAME		STATUS	ROUTING-KEY	HOST		PORT
@@ -62,7 +61,7 @@ There are many options to consider when creating connectors using the CLI, see [
 
 ## Creating a listener using the CLI
 
-A listener binds a local connection endpoint to connectors in remote sites. 
+A listener binds a local connection endpoint to connectors in remote sites.
 Listeners and connectors are matched using routing keys.
 
 **Prerequisites**
@@ -95,16 +94,16 @@ Listeners and connectors are matched using routing keys.
    ```bash
    skupper listener status
    ```
-   
+
    For example:
-   
+
    ```
    $ skupper listener status
    NAME		STATUS	ROUTING-KEY	HOST		PORT
    my-server	Ok	my-server	localhost	8081
 
    ```
-   
+
    **📌 NOTE**
    There must be a matching connector for the service to operate.
    By default, the routing key name is the listener name.

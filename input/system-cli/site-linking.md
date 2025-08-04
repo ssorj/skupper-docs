@@ -1,4 +1,3 @@
-<a id="system-linking-cli"></a>
 # Linking sites on local systems using the Skupper CLI
 
 Using the Skupper command-line interface (CLI) allows you to create links between sites.

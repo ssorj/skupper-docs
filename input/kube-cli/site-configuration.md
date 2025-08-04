@@ -1,11 +1,9 @@
-<a id="kube-creating-site-cli"></a>
 # Creating a site on Kubernetes using the Skupper CLI
 
 Using the skupper command-line interface (CLI) allows you to create and manage sites from the context of the current namespace.
 
 A typical workflow is to create a site, link sites together, and expose services to the application network.
 
-<a id="kube-checking-cli"></a>
 ## Checking the Skupper CLI
 
 Installing the skupper command-line interface (CLI) provides a simple method to get started with Skupper.
@@ -20,7 +18,6 @@ Installing the skupper command-line interface (CLI) provides a simple method to 
    cli                     {{skupper_version}}
    ```
 
-<a id="kube-creating-simple-site-cli"></a>
 ## Creating a simple site using the CLI on Kubernetes
 
 **Prerequisites**
@@ -72,7 +69,6 @@ For example
   ```
   You can check the status of the site at any time using `skupper site status`.
 
-<a id="kube-deleting-site-cli"></a>
 ## Deleting a site using the CLI on Kubernetes
 
 **Prerequisites**
