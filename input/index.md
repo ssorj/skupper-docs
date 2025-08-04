@@ -7,8 +7,8 @@ title: Documentation
 ## Understanding the basics
 
 * [Overview](overview/index.html)
-* [Concepts](concepts/index.html)
-* [Getting started](start/index.html)
+* [Concepts]({{site.prefix}}/concepts/index.html)
+* [Getting started]({{site.prefix}}/start/index.html)
 
 ## Installation
 
