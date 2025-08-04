@@ -12,24 +12,9 @@ title: Documentation
 
 ## Installation
 
-* [Installing Skupper using YAML](install/index.html)
-* [Installing Skupper using Helm](install/index.html)
-
-## Using the Skupper CLI with Kubernetes
-
-* [Overview](kube-cli/index.html)
-* [Configuring sites](kube-cli/site-configuration.html)
-* [Linking sites](kube-cli/site-linking.html)
-* [Exposing services on the network](kube-cli/service-exposure.html)
-* [CLI reference]({{site.prefix}}/commands/index.html)
-
-## Using the Skupper CLI with Docker, Podman, and Linux
-
-* [Overview](system-cli/index.html)
-* [Configuring sites](system-cli/site-configuration.html)
-* [Linking sites](system-cli/site-linking.html)
-* [Exposing services on the network](system-cli/service-exposure.html)
-* [CLI reference]({{site.prefix}}/commands/index.html)
+* [Installing Skupper on Kubernetes](kube-install/index.html)
+* [Installing Skupper on Linux systems](system-install/index.html)
+* [Installing the Skupper CLI](cli-install)
 
 ## Using Skupper YAML with Kubernetes
 
@@ -39,13 +24,29 @@ title: Documentation
 * [Exposing services on the network](kube-yaml/service-exposure.html)
 * [YAML reference]({{site.prefix}}/resources/index.html)
 
-## Using Skupper YAML with Docker, Podman, and Linux
+## Using Skupper YAML with Linux systems
 
 * [Overview](system-yaml/index.html)
 * [Configuring sites](system-yaml/site-configuration.html)
 * [Linking sites](system-yaml/site-linking.html)
 * [Exposing services on the network](system-yaml/service-exposure.html)
 * [YAML reference]({{site.prefix}}/resources/index.html)
+
+## Using the Skupper CLI with Kubernetes
+
+* [Overview](kube-cli/index.html)
+* [Configuring sites](kube-cli/site-configuration.html)
+* [Linking sites](kube-cli/site-linking.html)
+* [Exposing services on the network](kube-cli/service-exposure.html)
+* [CLI reference]({{site.prefix}}/commands/index.html)
+
+## Using the Skupper CLI with Linux systems
+
+* [Overview](system-cli/index.html)
+* [Configuring sites](system-cli/site-configuration.html)
+* [Linking sites](system-cli/site-linking.html)
+* [Exposing services on the network](system-cli/service-exposure.html)
+* [CLI reference]({{site.prefix}}/commands/index.html)
 
 ## Observability
 
