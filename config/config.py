@@ -1,3 +1,5 @@
+site.prefix = "/skupper-docs"
+
 from plano import *
 import os
 
