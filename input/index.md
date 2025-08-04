@@ -21,7 +21,7 @@ title: Documentation
 * [Configuring sites](kube-cli/site-configuration.html)
 * [Linking sites](kube-cli/site-linking.html)
 * [Exposing services on the network](kube-cli/service-exposure.html)
-* [CLI reference]({{site_prefix}}/commands/index.html)
+* [CLI reference]({{site.prefix}}/commands/index.html)
 
 ## Using the Skupper CLI with Docker, Podman, and Linux
 
@@ -29,7 +29,7 @@ title: Documentation
 * [Configuring sites](kube-cli/site-configuration.html)
 * [Linking sites](kube-cli/site-linking.html)
 * [Exposing services on the network](kube-cli/service-exposure.html)
-* [CLI reference]({{site_prefix}}/commands/index.html)
+* [CLI reference]({{site.prefix}}/commands/index.html)
 
 ## Using Skupper YAML with Kubernetes
 
@@ -37,7 +37,7 @@ title: Documentation
 * [Configuring sites](kube-cli/site-configuration.html)
 * [Linking sites](kube-cli/site-linking.html)
 * [Exposing services on the network](kube-cli/service-exposure.html)
-* [YAML reference]({{site_prefix}}/resources/index.html)
+* [YAML reference]({{site.prefix}}/resources/index.html)
 
 ## Using Skupper YAML with Docker, Podman, and Linux
 
@@ -45,7 +45,7 @@ title: Documentation
 * [Configuring sites](kube-cli/site-configuration.html)
 * [Linking sites](kube-cli/site-linking.html)
 * [Exposing services on the network](kube-cli/service-exposure.html)
-* [YAML reference]({{site_prefix}}/resources/index.html)
+* [YAML reference]({{site.prefix}}/resources/index.html)
 
 ## Observability
 

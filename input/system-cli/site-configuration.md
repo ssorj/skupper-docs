@@ -20,9 +20,9 @@ Installing the skupper command-line interface (CLI) provides a simple method to 
 2. Verify the installation.
    ```bash
    skupper version
-   
+
    COMPONENT               VERSION
-   cli                     {{skupper_cli_version}}
+   cli                     {{skupper_version}}
    ```
 
 3. For podman sites:
@@ -59,7 +59,7 @@ Installing the skupper command-line interface (CLI) provides a simple method to 
    For example:
    ```bash
    skupper site create my-site
-   
+
    Waiting for status...
    Site "my-site" is ready.
    ```

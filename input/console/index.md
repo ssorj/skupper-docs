@@ -23,7 +23,7 @@ The Network console provides data and visualizations of the traffic flow between
 
 3. Deploy the network observer helm chart:
    ```
-   helm install skupper-network-observer oci://quay.io/skupper/helm/network-observer --version {{skupper_cli_version}}
+   helm install skupper-network-observer oci://quay.io/skupper/helm/network-observer --version {{skupper_version}}
    ```
 
    The output is similar to the following:
@@ -38,7 +38,7 @@ The Network console provides data and visualizations of the traffic flow between
    TEST SUITE: None
    NOTES:
    You have installed the skupper network observer!
-   
+
    Accessing the console:
    The network-observer application is exposed as a service inside of your
    cluster. To access the application externally you must either enable an
@@ -53,7 +53,7 @@ The Network console provides data and visualizations of the traffic flow between
    This secret has been prepopulated with a single user "skupper" and a randomly
    generated password stored in plaintext. It is recommended that these
    credentials be rotated and replaced with a secure password hash (bcrypt.)
- 
+
    Retrieve the password with this command:
    kubectl --namespace default \
          get secret skupper-network-observer-auth \

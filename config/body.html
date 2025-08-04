@@ -1,17 +1,30 @@
-{{page.include("includes/header.html")}}
+<body class="{{page.metadata.get('body_class', 'none')}}">
+  <header>
+    <div>
+      <a href="/index.html" id="-logotype">
+        <img src="/images/skupper-logo.svg">
+      </a>
 
-<section id="-main-and-toc">
-  <div>
-    <main>
+      {{page.path_nav()}}
+
+      <a href="https://github.com/skupperproject">
+        <div><span class="fab fa-github fa-lg"></span> GitHub</div>
+      </a>
+    </div>
+  </header>
+  <main>
 
 {{page.content}}
 
-    </main>
-    <nav id="-toc">
-      <h4>Contents</h4>
-      <div></div>
-    </nav>
-  </div>
-</section>
+  </main>
+  <aside>
 
-{{page.include("includes/footer.html")}}
+    <nav id="-toc">
+    </nav>
+
+  </aside>
+  <footer>
+    <div>
+    </div>
+  </footer>
+</body>

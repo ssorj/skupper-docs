@@ -1,12 +1,12 @@
 <a id="kube-installing-controller"></a>
 # Installing the Skupper controller on Kubernetes
 
-Before you can create a site on Kubernetes, you must install the Skupper controller. 
+Before you can create a site on Kubernetes, you must install the Skupper controller.
 You can install the controller using the following methods:
 
 * Directly using YAML
 * Helm charts
-* Operator 
+* Operator
 
 After installing the Skupper controller, you can create sites using the CLI or YAML:
 
@@ -32,13 +32,13 @@ If you scope the controller to a namespace, you can only create sites in that na
 Install a cluster-scoped controller using the following commands:
 
 ```bash
-kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_cli_version}}/skupper-cluster-scope.yaml
+kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_version}}/skupper-cluster-scope.yaml
 ```
 
 Install a namespace-scoped controller using the following commands:
 
 ```bash
-kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_cli_version}}/skupper-namespace-scope.yaml
+kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_version}}/skupper-namespace-scope.yaml
 ```
 
 
@@ -58,13 +58,13 @@ kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{s
 Install a cluster-scoped controller using the following commands:
 
 ```
-kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_cli_version}}/skupper-cluster-scope.yaml
+kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_version}}/skupper-cluster-scope.yaml
 ```
 
 Install a namespace-scoped controller using the following commands:
 
 ```
-kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_cli_version}}/skupper-namespace-scope.yaml
+kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_version}}/skupper-namespace-scope.yaml
 ```
 
 
@@ -82,7 +82,7 @@ kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{s
 Run the following command to install a cluster-scoped controller:
 
 ```
-helm install skupper oci://quay.io/skupper/helm/skupper --version {{skupper_cli_version}}
+helm install skupper oci://quay.io/skupper/helm/skupper --version {{skupper_version}}
 ```
 To install a namespace-scoped controller, add the `--set scope=namespace` option.
 
