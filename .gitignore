@@ -1,6 +1,4 @@
-.vscode/
-output/
+/output
 __pycache__/
-*.html
 .venv/
-
+.vscode/
