@@ -1,22 +1,20 @@
 # Installing Skupper on Kubernetes
 
-Before you can create a site on Kubernetes, you must install the Skupper controller.
-You can install the controller using the following methods:
+Before you can create a site on Kubernetes, you must install the
+Skupper controller and CRDs.  You can use any of the following
+methods:
 
 * Directly using YAML
 * Helm charts
 * Operator
 
-After installing the Skupper controller, you can create sites using the CLI or YAML:
+After installation, you can create sites using the CLI or YAML:
 
 * [Creating a site using the CLI][cli-site]
 * [Creating a site using YAML][yaml-site]
 
 [cli-site]: ../kube-cli/site-configuration.html
 [yaml-site]: ../kube-yaml/site-configuration.html
-
-**NOTE**: If you install the controller scoped to cluster, you can create sites in any namespace.
-If you scope the controller to a namespace, you can only create sites in that namespace.
 
 ## Installing Skupper using YAML
 
@@ -26,47 +24,64 @@ If you scope the controller to a namespace, you can only create sites in that na
 
 **Procedure**
 
-Install a cluster-scoped controller using the following commands:
+To install the latest Skupper release, use `kubectl apply` with the
+[installation YAML](https://skupper.io/install.yaml):
 
-```bash
+~~~ shell
+kubectl apply -f https://skupper.io/install.yaml
+~~~
+
+To install a particular version of Skupper, use the GitHub release URL:
+
+**Procedure**
+
+~~~ shell
 kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_version}}/skupper-cluster-scope.yaml
-```
+~~~
 
-Install a namespace-scoped controller using the following commands:
+There is also an option to install the controller at namespace scope:
 
-```bash
+~~~ shell
 kubectl apply -f https://github.com/skupperproject/skupper/releases/download/{{skupper_version}}/skupper-namespace-scope.yaml
-```
+~~~
+
+**NOTE**: If you install the controller at cluster scope, you can
+create sites in any namespace.  If you install the controller at
+namespace scope, you can create sites only in that namespace.
 
 ## Installing Skupper using Helm
 
 **Prerequisites**
 
 * cluster-admin access to cluster
-* helm (See https://helm.sh/docs/intro/install/)
+* Helm (see [Installing Helm](https://helm.sh/docs/intro/install/))
 
 **Procedure**
 
-Run the following command to install a cluster-scoped controller:
+Run the following command to install the controller at cluster scope:
 
-```
+~~~ shell
 helm install skupper oci://quay.io/skupper/helm/skupper --version {{skupper_version}}
-```
-To install a namespace-scoped controller, add the `--set scope=namespace` option.
+~~~
 
-<!--
-## Installing the Skupper controller using the Skupper Operator
+To install a controller at namespace scope, add the `--set
+scope=namespace` option.
 
-**Prerequisites**
+**NOTE**: If you install the controller at cluster scope, you can
+create sites in any namespace.  If you install the controller at
+namespace scope, you can create sites only in that namespace.
 
-* cluster-admin access to cluster
-* OpenShift
+<!-- ## Installing the Skupper controller using the Skupper Operator -->
 
-**Procedure**
+<!-- **Prerequisites** -->
 
-1. Navigate to the **OperatorHub** in the **Administrator** view.
-2. Search for `Skupper`, provided by `Skupper project`.
-3. Select **stable-2.0** from **Channel**.
-4. Select the latest **Version**.
-5. Click **Install**.
--->
+<!-- * cluster-admin access to cluster -->
+<!-- * OpenShift -->
+
+<!-- **Procedure** -->
+
+<!-- 1. Navigate to the **OperatorHub** in the **Administrator** view. -->
+<!-- 2. Search for `Skupper`, provided by `Skupper project`. -->
+<!-- 3. Select **stable-2.0** from **Channel**. -->
+<!-- 4. Select the latest **Version**. -->
+<!-- 5. Click **Install**. -->
