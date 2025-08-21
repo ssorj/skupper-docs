@@ -7,11 +7,12 @@ title: Documentation
 ## Introduction
 
 * [Overview](introduction/)
-<!-- * [Use cases](introduction/use-cases.html) -->
 * [Security](introduction/security.html)
 * [Routing](introduction/routing.html)
-<!-- * [Architecture](introduction/architecture.html) -->
 * [Getting started]({{skupper_site_url}}/start/)
+
+<!-- * [Use cases](introduction/use-cases.html) -->
+<!-- * [Architecture](introduction/architecture.html) -->
 
 ## Installation
 
