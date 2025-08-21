@@ -31,6 +31,6 @@ title: Documentation
 
 ## Reference
 
-* [Concepts]({{skupper_site_url}}/concepts/)
+* [Skupper concepts]({{skupper_site_url}}/concepts/)
 * [API resources]({{skupper_site_url}}/resources/)
 * [CLI commands]({{skupper_site_url}}/commands/)

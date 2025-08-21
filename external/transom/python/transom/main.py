@@ -470,9 +470,13 @@ class TemplatePage(File):
 
         return self._convert_content(rendered)
 
-    def path_nav(self, start=None, end=None):
+    def path_nav(self, start=0, end=None, min=1):
         files = reversed(list(self.ancestors))
         links = [f"<a href=\"{x.url}\">{x.title}</a>" for x in files]
+        links = links[start:end]
+
+        if len(links) < min:
+            return ""
 
         return f"<nav class=\"path-nav\">{''.join(links)}</nav>"
 
@@ -493,7 +497,12 @@ class TemplatePage(File):
 
         for elem in template:
             if type(elem) is _types.CodeType:
-                result = eval(elem, self.site._config, local_vars)
+                try:
+                    result = eval(elem, self.site._config, local_vars)
+                except TransomError:
+                    raise
+                except Exception as e:
+                    raise TransomError(f"{self.input_path}: {e}")
 
                 if type(result) is _types.GeneratorType:
                     yield from result
@@ -533,15 +542,19 @@ class RenderProcess(_multiprocessing.Process):
         self.rendered_count = _multiprocessing.Value('L', 0)
 
     def run(self):
-        rendered_count = 0
+        try:
+            rendered_count = 0
 
-        for file_ in self.files:
-            file_._render(force=self.force)
+            for file_ in self.files:
+                file_._render(force=self.force)
 
-            if file_._rendered:
-                rendered_count += 1
+                if file_._rendered:
+                    rendered_count += 1
 
-        self.rendered_count.value = rendered_count
+            self.rendered_count.value = rendered_count
+        except TransomError as e:
+            print(f"Error: {e}")
+            _sys.exit(1)
 
 class WatcherThread:
     def __init__(self, site):
@@ -893,7 +906,7 @@ class HtmlRenderer(_mistune.renderers.html.HTMLRenderer):
 
 class MarkdownLocal(_threading.local):
     def __init__(self):
-        self.value = _mistune.create_markdown(renderer=HtmlRenderer(escape=False), plugins=["table"])
+        self.value = _mistune.create_markdown(renderer=HtmlRenderer(escape=False), plugins=["table", "strikethrough"])
         self.value.block.list_rules += ['table', 'nptable']
 
 _markdown_local = MarkdownLocal()
