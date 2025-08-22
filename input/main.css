@@ -28,6 +28,7 @@
     --body-background-color: hsl(0, 0%, 100%);
     --code-background-color: hsl(0, 0%, 97%);
     --text-color: hsl(0, 0%, 20%);
+    --disabled-text-color: hsl(0, 0%, 40%);
     --line-color: hsl(0, 0%, 95%);
     --link-color: rgb(40, 100, 180);
     --accent-color-1: hsl(6, 80%, 70%);
@@ -285,9 +286,13 @@ table {
 
 /* Standard styles for path navigation */
 
-.path-nav > a::after {
+.path-nav > a:not(:last-child)::after {
     content: " \00a0\003e\00a0\00a0 ";
     color: var(--text-color);
+}
+
+.path-nav > a:last-child {
+    color: var(--disabled-text-color);
 }
 
 /* Nothing Skupper-specific above here! */
@@ -579,30 +584,6 @@ div.examples > section {
     position: relative;
     top: -2px;
 }
-
-.path-nav {
-    margin-bottom: 1em;
-}
-
-/* .path-nav { */
-/*     flex-grow: 1; */
-/* } */
-
-/* .path-nav > a:first-child { */
-/*     font-family: var(--heading-font-family); */
-/*     font-size: 16pt; */
-/*     font-weight: 700; */
-/* } */
-
-/* .path-nav > a:first-child::after { */
-/*     content: " \00a0\00a0\00a0\00a0 " */
-/* } */
-
-/* header > div > a:last-child { */
-/*     justify-self: right; */
-/* } */
-
-/* -- */
 
 span.fab,
 span.fas {
