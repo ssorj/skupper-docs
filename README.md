@@ -2,4 +2,4 @@
 
 ## Style conventions
 
-Use `**Note**:` or `**Warning**:` for important messages.
+Use `**Note:**` or `**Warning:**` for important messages.
