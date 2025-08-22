@@ -9,7 +9,6 @@ title: Documentation
 * [Overview](introduction/)
 * [Security](introduction/security.html)
 * [Routing](introduction/routing.html)
-* [Getting started]({{skupper_site_url}}/start/)
 
 <!-- * [Use cases](introduction/use-cases.html) -->
 <!-- * [Architecture](introduction/architecture.html) -->
