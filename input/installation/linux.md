@@ -4,12 +4,14 @@ Before you can create a site on Linux (including Docker and Podman
 sites), you must install the Skupper system resources into your user
 account.
 
-Prerequisites:
+#### Prerequisites
 
 - A user account on a Linux system
 - The Skupper CLI (see [Installing the Skupper CLI](../installation/cli.html))
 
-To install, use the `skupper system install` command:
+#### Procedure
+
+Use the `skupper system install` command:
 
 ~~~ shell
 skupper system install
