@@ -671,3 +671,9 @@ nav.button-group {
 nav.button-group > a {
     margin-right: 1em;
 }
+
+/* -- */
+
+nav.path-nav {
+    font-size: 0.95em;
+}

@@ -39,7 +39,7 @@ from html import escape as _escape
 from html.parser import HTMLParser
 from urllib import parse as _urlparse
 
-__all__ = ["Transom", "TransomCommand"]
+__all__ = ["TransomSite", "TransomCommand"]
 
 _default_page_template = """
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ if not _once:
     _multiprocessing.set_start_method("fork")
     _once = True
 
-class Transom:
+class TransomSite:
     def __init__(self, project_dir, verbose=False, quiet=False):
         self.project_dir = _os.path.normpath(project_dir)
         self.config_dir = _os.path.normpath(_os.path.join(self.project_dir, "config"))
@@ -87,6 +87,7 @@ class Transom:
         self.ignored_link_patterns = []
 
         self.prefix = ""
+        self.extra_input_dirs = [self.config_dir]
 
         self._config = {
             "site": self,
@@ -99,7 +100,7 @@ class Transom:
         self._body_template = None
         self._page_template = None
 
-        self._config_modified = False
+        self._modified = False
 
         self._files = list()
         self._index_files = dict() # parent input dir => _File
@@ -113,17 +114,20 @@ class Transom:
         self._ignored_file_regex = _re.compile(self._ignored_file_regex)
 
         try:
-            exec(read_file(_os.path.join(self.config_dir, "config.py")), self._config)
+            exec(read_file(_os.path.join(self.config_dir, "transom.py")), self._config)
         except FileNotFoundError as e:
             self.warning("Config file not found: {}", e)
 
-    def _get_config_modified(self, output_mtime):
-        for root, dirs, names in _os.walk(self.config_dir):
-            for name in {x for x in names if not self._ignored_file_regex.match(x)}:
-                mtime = _os.path.getmtime(_os.path.join(root, name))
+    def _compute_modified(self):
+        output_mtime = _os.path.getmtime(self.output_dir)
 
-                if mtime > output_mtime:
-                    return True
+        for input_dir in self.extra_input_dirs:
+            for root, dirs, names in _os.walk(input_dir):
+                for name in {x for x in names if not self._ignored_file_regex.match(x)}:
+                    mtime = _os.path.getmtime(_os.path.join(root, name))
+
+                    if mtime > output_mtime:
+                        return True
 
         return False
 
@@ -158,8 +162,7 @@ class Transom:
         self.notice("Rendering files from '{}' to '{}'", self.input_dir, self.output_dir)
 
         if _os.path.exists(self.output_dir):
-            output_mtime = _os.path.getmtime(self.output_dir)
-            self._config_modified = self._get_config_modified(output_mtime)
+            self._modified = self._compute_modified()
 
         self._init_files()
 
@@ -439,7 +442,7 @@ class TemplatePage(File):
             self._body_template = self.site._body_template
 
     def _is_modified(self):
-        return self.site._config_modified or super()._is_modified()
+        return self.site._modified or super()._is_modified()
 
     def _render_content(self):
         if not hasattr(self, "_content"):
@@ -590,7 +593,9 @@ class WatcherThread:
             self.site.render()
 
         watcher.add_watch(self.site.input_dir, mask, render_file, rec=True, auto_add=True)
-        watcher.add_watch(self.site.config_dir, mask, render_site, rec=True, auto_add=True)
+
+        for input_dir in self.site.extra_input_dirs:
+            watcher.add_watch(input_dir, mask, render_site, rec=True, auto_add=True)
 
         self.notifier = _pyinotify.ThreadedNotifier(watcher)
 
@@ -724,7 +729,7 @@ class TransomCommand:
         self.verbose = self.args.verbose
 
         if self.args.command_fn != self.init_command:
-            self.lib = Transom(self.args.project_dir, verbose=self.verbose, quiet=self.quiet)
+            self.lib = TransomSite(self.args.project_dir, verbose=self.verbose, quiet=self.quiet)
 
             if self.args.output:
                 self.lib.output_dir = self.args.output
