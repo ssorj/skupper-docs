@@ -96,11 +96,8 @@ listeners) of application components.
 
 **Service meshes** - Unlike service meshes, Skupper does not attempt
 to manage all aspects of service communication.  Instead, Skupper
-focuses on flexible, multi-platform connectivity.
-
-<!-- ^^ Confined to one platform XXX -->
-
-<!-- **Tailscale and similar** XXX -->
+focuses on flexible connectivity.  Many service meshes focus on one
+particular platform.  Skupper is designed to work across platforms.
 
 Compared to other solutions, Skupper is notably very easy to set up.
 Because it operates over-the-top, it does not require any changes to
@@ -114,12 +111,27 @@ provide application-layer connectivity for a wide range of protocols,
 primarily TCP and HTTP, abstracting the complexities of underlying
 Layer 3 networks for distributed applications.
 
-## More resources
+To learn more:
 
-* [Use cases](introduction/use-cases.html)
-* [Security](introduction/security.html)
-* [Routing](introduction/routing.html)
-* [Observability](introduction/observability.html)
-* [Architecture](introduction/architecture.html)
-* [Performance](introduction/performance.html)
-* [History](introduction/history.html)
+* [Use cases](use-cases.html)
+* [Security](security.html)
+* [Observability](observability.html)
+* [Architecture](architecture.html)
+<!-- * [Routing](routing.html) -->
+<!-- * [Performance](performance.html) -->
+<!-- * [History](history.html) -->
+
+## Unfiled
+
+- Skupper, also known as Red Hat Service Interconnect (RHSI), is a
+  service interconnect platform designed to facilitate **secure
+  communication between application components** across various
+  environments such as Kubernetes clusters, virtual machines (VMs),
+  container engines (like Podman and Docker), and bare-metal
+  hosts. Its core purpose is to simplify complex network topologies by
+  operating at the application layer, "over the top" of existing Layer
+  3 (L3) networking, without requiring VPNs or special firewall
+  rules. Skupper creates **isolated, application-focused virtual
+  networks** with logical service addresses, enabling application
+  portability and secure communication through mutual TLS (mTLS)
+  authentication and encryption.

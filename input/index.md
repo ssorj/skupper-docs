@@ -9,14 +9,11 @@ title: Documentation
 * [Overview](introduction/)
 * [Use cases](introduction/use-cases.html)
 * [Security](introduction/security.html)
-* [Routing](introduction/routing.html)
 * [Observability](introduction/observability.html)
 * [Architecture](introduction/architecture.html)
-* [Performance](introduction/performance.html)
-* [History](introduction/history.html)
-
-<!-- * [Use cases](introduction/use-cases.html) -->
-<!-- * [Architecture](introduction/architecture.html) -->
+<!-- * [Routing](introduction/routing.html) -->
+<!-- * [Performance](introduction/performance.html) -->
+<!-- * [History](introduction/history.html) -->
 
 ## Installation
 

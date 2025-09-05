@@ -1,51 +1,83 @@
-# Creating a site on Kubernetes using YAML
+# Configuring sites
 
-Using YAML allows you to create and manage sites from the context of the current namespace.
+XXX
 
-A typical workflow is to create a site, link sites together, and expose services to the application network.
+- Declarative model of config
+- See the [Site API]({{skupper_api_ref}}/site.html)
+- Using YAML allows you to create and manage sites from the context of the current namespace.
+- You can use YAML to create and manage Skupper sites.
+- There are many options to consider when creating sites using YAML, see... .
+- Prerequisite: The Skupper controller is running on the Kubernetes
+  cluster you are running or you are running on a platform.
 
-## Creating a simple site on Kubernetes using YAML
+## Creating a site
 
-You can use YAML to create and manage Skupper sites.
+Procedure:
 
-**Prerequisites**
+1. Create a file with a name of your choice.  Include the YAML for a
+   `Site` resource:
 
-* The Skupper controller is running on the Kubernetes cluster you are running or you are running on a platform.
+   <div class="file-label">site-1.yaml:</div>
 
-Procedure
-
-1. Create a site CR YAML file named `my-site.yaml`, for example:
-
-   ```yaml
+   ~~~ yaml
    apiVersion: skupper.io/v2alpha1
    kind: Site
    metadata:
-     name: my-site
-     namespace: west
-   ```
-   This YAML creates a site named `my-site` in the `west` namespace.
-   Specifying the namespace is not required if the context is set to the namespace where you want to create the site.
+     name: site-1
+     namespace: namespace-1
+   ~~~
 
-2. Create the site:
-   ```bash
-   kubectl apply -f my-site.yaml
-   ```
+   This YAML defines a site named `site-1` in the `namespace-1`
+   namespace.  If you don't set the namespace, the one from the
+   current context is used.
 
-3. Check the status of the site:
-   ```bash
+1. Use your platform's `apply` to create the site.
+
+   Kubernetes:
+
+   ~~~ shell
+   kubectl apply -f site-1.yaml
+   ~~~
+
+   Linux:
+
+   ~~~ shell
+   skupper system apply -f site-1.yaml
+   ~~~
+
+1. Use `kubectl get` or the Skupper CLI to check the status of your
+   site.
+
+   Kubectl:
+
+   ~~~ shell
    kubectl get site
-   ```
-   You might need to issue the command multiple times before the site is ready:
-   ```
-   $ kubectl get site
-   NAME   STATUS    SITES IN NETWORK   MESSAGE
-   west   Pending                      containers with unready status: [router kube-adaptor]
-   $ kubectl get site
-   NAME   STATUS   SITES IN NETWORK   MESSAGE
-   west   Ready    1                  OK
-   ```
-   You can now link this site to another site to create an application network.
+   ~~~
 
-There are many options to consider when creating sites using YAML, see [YAML Reference][yaml-ref], including *frequently used* options.
+   Skupper CLI:
 
-[yaml-ref]: https://skupperproject.github.io/refdog/resources/index.html
+   ~~~ shell
+   skupper site status
+   ~~~
+
+## Updating a site
+
+Updating a site uses the same procedure as creating a site.  Change
+the values in your local file and apply it again.
+
+## Deleting a site
+
+To delete a site defined in a YAML file, use the platform's `delete`
+command.
+
+Kubernetes:
+
+~~~ shell
+kubectl delete -f site-1.yaml
+~~~
+
+Linux:
+
+~~~ shell
+skupper system delete -f site-1.yaml
+~~~

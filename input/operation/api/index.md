@@ -8,3 +8,8 @@ Skupper controller to
 * [Link sites](site-linking.html) - Link sites to form a network
 * [Expose services](service-exposure.html) - Expose application
   services on the network
+
+## Unfiled
+
+A typical workflow is to create a site, link sites together, and
+expose services to the application network.
