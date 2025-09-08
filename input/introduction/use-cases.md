@@ -18,16 +18,15 @@ XXX
 
 ## Remote resource access
 
+- **Unreachable Networks** - It makes "unreachable" networks routable, connecting diverse environments with complex firewalls, NAT, VPNs, and CIDR conflicts.
+
 A core function of Skupper is to enable secure access to resources located in "other" clusters or on-premises data centers from applications in public clouds, and vice versa.
 
 - **Accessing On-Premises Data** - This is crucial for maintaining data privacy and leveraging cloud compute without migrating sensitive data. Data sources include databases (e.g., PostgreSQL, MySQL, MongoDB), message brokers, and API endpoints.
 - **Accessing Cloud Resources** - Allows private data centers or on-prem applications to securely access cloud-based resources, such as cloud GPU instances for processing.
 - **Firewall and NAT Traversal** - Skupper operates over existing L3 connectivity, eliminating the need to modify NAT configurations or open new firewall holes to establish cross-site networks.
-- **Developer Access** - Simplifies developer access to applications deployed in the cloud without requiring administrative control of the clusters or network.
-
-- **Unreachable Networks** - It makes "unreachable" networks routable, connecting diverse environments with complex firewalls, NAT, VPNs, and CIDR conflicts.
-- **IPv4/IPv6 Interoperability** - Skupper supports networks with a mix of IPv4 and IPv6 sites, enabling IPv4 applications to work transparently over IPv6 networks.
 - **DMZ Scenarios** - Can be used to establish secure links into a DMZ, allowing control over outbound connections.
+- **Developer Access** - Simplifies developer access to applications deployed in the cloud without requiring administrative control of the clusters or network.
 
 Messaging Use Cases:
 
@@ -80,6 +79,8 @@ Skupper is well-suited for applications spread across numerous geographical loca
 - **Non-Kubernetes Edge** - Edge sites often run on container engines like Podman or bare metal rather than Kubernetes, which Skupper fully supports.
 
 ## Others
+
+- **IPv4/IPv6 Interoperability** - Skupper supports networks with a mix of IPv4 and IPv6 sites, enabling IPv4 applications to work transparently over IPv6 networks.
 
 #### 5. AI/ML Workloads
 
