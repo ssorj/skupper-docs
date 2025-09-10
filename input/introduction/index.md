@@ -26,67 +26,69 @@ across the network.
 
 <img src="../images/overview-clouds.png" style="width: 80%;"/>
 
-XXX An application network connects the services in your hybrid cloud into
-a virtual network so that they can communicate with each other as if
-they were all running in the same site.  In this diagram, an
-application network connects three services, each of which is running
-in a different cloud:
+<!-- XXX An application network connects the services in your hybrid cloud into -->
+<!-- a virtual network so that they can communicate with each other as if -->
+<!-- they were all running in the same site.  In this diagram, an -->
+<!-- application network connects three services, each of which is running -->
+<!-- in a different cloud: -->
 
-- XXX What the application sees.
-- XXX How it is isolated.
-- XXX The routers are in user space.
+<!-- - XXX What the application sees. -->
+<!-- - XXX How it is isolated. -->
+<!-- - XXX The routers are in user space. -->
 
-A Skupper network is composed of sites, where application components
-run. These sites are linked together to form a dedicated network for
-your applications. The VAN is an isolated, distributed set of
-connected software components where addressing and routing occur at
-the service level (Layer 7), independent of the underlying
+<!-- A Skupper network is composed of sites, where application components -->
+<!-- run. These sites are linked together to form a dedicated network for -->
+<!-- your applications.  -->
+
+The application network is an isolated, distributed set of connected
+software components where addressing and routing occur at the service
+level (application layer), independent of the underlying IP
 network. This approach abstracts away the complexities of underlying
 network configurations.
 
-## Skupper connectivity
+<!-- ## Skupper connectivity -->
 
-Skupper represents a new approach to connecting services across multiple Kubernetes clusters.
-See how Skupper can give you the flexibility to deploy your services where you need them.
+<!-- Skupper represents a new approach to connecting services across multiple Kubernetes clusters. -->
+<!-- See how Skupper can give you the flexibility to deploy your services where you need them. -->
 
-**One cluster**
+<!-- **One cluster** -->
 
-Kubernetes **services** provide a virtual network address for each element of your distributed application.
-Service "A" can contact service "B", "B" can contact "C", and so on.
+<!-- Kubernetes **services** provide a virtual network address for each element of your distributed application. -->
+<!-- Service "A" can contact service "B", "B" can contact "C", and so on. -->
 
-![one-cluster](../images/one-cluster.svg)
+<!-- ![one-cluster](../images/one-cluster.svg) -->
 
-But if you want to deploy your application across multiple clusters, your options are limited.
-You have to either expose your services to the public internet or set up a VPN.
+<!-- But if you want to deploy your application across multiple clusters, your options are limited. -->
+<!-- You have to either expose your services to the public internet or set up a VPN. -->
 
-Skupper offers a third way.
-It connects clusters to a secure layer 7 network.
-It uses that network to forward local service traffic to remote clusters.
+<!-- Skupper offers a third way. -->
+<!-- It connects clusters to a secure layer 7 network. -->
+<!-- It uses that network to forward local service traffic to remote clusters. -->
 
-**Secure hybrid cloud communication**
+<!-- **Secure hybrid cloud communication** -->
 
-Deploy your application across public and private clusters.
+<!-- Deploy your application across public and private clusters. -->
 
-![two-clusters](../images/two-clusters.svg)
+<!-- ![two-clusters](../images/two-clusters.svg) -->
 
-You can host your database on a private cluster and retain full connectivity with services running on the public cloud.
-All communication is secured by mutual TLS authentication and encryption.
+<!-- You can host your database on a private cluster and retain full connectivity with services running on the public cloud. -->
+<!-- All communication is secured by mutual TLS authentication and encryption. -->
 
-**Edge-to-edge connectivity**
+<!-- **Edge-to-edge connectivity** -->
 
-Distribute application services across geographic regions.
+<!-- Distribute application services across geographic regions. -->
 
-![five-clusters](../images/five-clusters.svg)
+<!-- ![five-clusters](../images/five-clusters.svg) -->
 
-You can connect multiple retail sites to a central office.
-Once connected, each edge location can contact any other edge.
-You can add and remove sites on demand.
+<!-- You can connect multiple retail sites to a central office. -->
+<!-- Once connected, each edge location can contact any other edge. -->
+<!-- You can add and remove sites on demand. -->
 
-**Scale up and out**
+<!-- **Scale up and out** -->
 
-Build large, robust networks of connected clusters.
+<!-- Build large, robust networks of connected clusters. -->
 
-![many-clusters](../images/many-clusters.svg)
+<!-- ![many-clusters](../images/many-clusters.svg) -->
 
 ## Comparing Skupper to other solutions
 
