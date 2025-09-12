@@ -8,7 +8,7 @@ title: Documentation
 
 * [Overview](introduction/)
 * [Use cases](introduction/use-cases.html)
-* [Security](introduction/security.html)
+<!-- * [Security](introduction/security.html) -->
 <!-- * [Observability](introduction/observability.html) -->
 <!-- * [Architecture](introduction/architecture.html) -->
 

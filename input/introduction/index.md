@@ -113,27 +113,27 @@ provide application-layer connectivity for a wide range of protocols,
 primarily TCP and HTTP, abstracting the complexities of underlying
 Layer 3 networks for distributed applications.
 
-To learn more:
+<!-- To learn more: -->
 
-* [Use cases](use-cases.html)
-* [Security](security.html)
-* [Observability](observability.html)
-* [Architecture](architecture.html)
+<!-- * [Use cases](use-cases.html) -->
+<!-- * [Security](security.html) -->
+<!-- * [Observability](observability.html) -->
+<!-- * [Architecture](architecture.html) -->
 <!-- * [Routing](routing.html) -->
 <!-- * [Performance](performance.html) -->
 <!-- * [History](history.html) -->
 
-## Unfiled
+<!-- ## Unfiled -->
 
-- Skupper, also known as Red Hat Service Interconnect (RHSI), is a
-  service interconnect platform designed to facilitate **secure
-  communication between application components** across various
-  environments such as Kubernetes clusters, virtual machines (VMs),
-  container engines (like Podman and Docker), and bare-metal
-  hosts. Its core purpose is to simplify complex network topologies by
-  operating at the application layer, "over the top" of existing Layer
-  3 (L3) networking, without requiring VPNs or special firewall
-  rules. Skupper creates **isolated, application-focused virtual
-  networks** with logical service addresses, enabling application
-  portability and secure communication through mutual TLS (mTLS)
-  authentication and encryption.
+<!-- - Skupper, also known as Red Hat Service Interconnect (RHSI), is a -->
+<!--   service interconnect platform designed to facilitate **secure -->
+<!--   communication between application components** across various -->
+<!--   environments such as Kubernetes clusters, virtual machines (VMs), -->
+<!--   container engines (like Podman and Docker), and bare-metal -->
+<!--   hosts. Its core purpose is to simplify complex network topologies by -->
+<!--   operating at the application layer, "over the top" of existing Layer -->
+<!--   3 (L3) networking, without requiring VPNs or special firewall -->
+<!--   rules. Skupper creates **isolated, application-focused virtual -->
+<!--   networks** with logical service addresses, enabling application -->
+<!--   portability and secure communication through mutual TLS (mTLS) -->
+<!--   authentication and encryption. -->
